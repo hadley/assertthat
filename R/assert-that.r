@@ -22,7 +22,7 @@ assert_that <- function(..., env = parent.frame()) {
   in_assert <- getOption("in_assert", FALSE)
   if (!in_assert) {
     old_ops <- options(in_assert = TRUE)
-    on.exit(old_ops)
+    on.exit(options(old_ops))
   }
 
   for (assertion in asserts) {
