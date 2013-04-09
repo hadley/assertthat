@@ -64,7 +64,7 @@ get_message <- function(call, env = parent.frame()) {
   if (!is.primitive(f)) call <- match.call(f, call)
   fname <- deparse(call[[1]])
 
-  fail <- attr(f, "fail") %||% base_fs[[fname]] %||% fail_default
+  fail <- on_failure(f) %||% base_fs[[fname]] %||% fail_default
   fail(call, env)
 }
 
@@ -77,3 +77,11 @@ fail_default <- function(call, env) {
 
   paste0(call_string, " is not TRUE")
 }
+
+"on_failure<-" <- function(x, value) {
+  attr(x, "fail") <- value
+  x
+}
+on_failure <- function(x) attr(x, "fail")
+
+

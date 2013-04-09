@@ -17,3 +17,4 @@ Collate:
     'base-is.r'
     'base-misc.r'
     'utils.r'
+    'assertions-file.r'
