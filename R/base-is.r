@@ -1,4 +1,5 @@
-base_fs <- new.env(parent = emptyenv())
+#' @include base.r
+NULL
 
 is_not <- function(thing) {
   function(call, env) {
@@ -39,14 +40,3 @@ base_fs$is.name <- is_not("a name")
 base_fs$is.pairlist <- is_not("a pairlist")
 base_fs$is.recursive <- is_not("a recursive object")
 base_fs$is.symbol <- is_not("a name")
-
-base_fs$file.exists <- function(call, env) {
-  path <- eval(call[[2]], env)
-  paste0("Path '", path, "' does not exist")
-}
-
-base_fs$"==" <- function(call, env) {
-  lhs <- paste(deparse(call[[2]]), collapse = "")
-  rhs <- paste(deparse(call[[3]]), collapse = "")
-  paste0(lhs, " does not equal ", rhs)
-}
