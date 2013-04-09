@@ -1,0 +1,7 @@
+export("assertions-file")
+export(assert_that)
+export(is.dir)
+export(is.flag)
+export(is.readable)
+export(is.string)
+export(is.writeable)
