@@ -1,6 +1,6 @@
 path_is_not <- function(thing, var = "x") {
   function(call, env) {
-    paste0("Path '", eval(call[[x]], env), "' is not ", thing)
+    paste0("Path '", eval(call[[var]], env), "' is not ", thing)
   }
 }
 
