@@ -68,67 +68,6 @@ get_message <- function(call, env = parent.frame()) {
   fail(call, env)
 }
 
-# You can provide more useful error message for base functions by adding them
-# to this list
-base_fs <- list(
-  is.character = function(call, env) {
-    paste0(deparse(call[[2]]), " is not a character vector")
-  },
-  is.numeric = function(call, env) {
-    paste0(deparse(call[[2]]), " is not a numeric or integer vector")
-  },
-  is.double = function(call, env) {
-    paste0(deparse(call[[2]]), " is not a numeric vector")
-  },
-  is.integer = function(call, env) {
-    paste0(deparse(call[[2]]), " is not a numeric vector")
-  },
-  file.exists = function(call, env) {
-    path <- eval(call[[2]], env)
-    paste0("Path '", path, "' does not exist")
-  },
-  "==" = function(call, env) {
-    lhs <- paste(deparse(call[[2]]), collapse = "")
-    rhs <- paste(deparse(call[[3]]), collapse = "")
-    paste0(lhs, " does not equal ", rhs)
-  }
-)
-
-not_a <- function(call, thing) {
-  paste0("Path '", path, "' does not exist")
-}
-
-# Or, if you create your own functions, you can add the message as an
-# attribute of the function.
-is.string <- function(x) is.character(x) && length(x) == 1
-attr(is.string, "fail") <- function(call, env) {
-  paste0(deparse(call$x), " is not a string.")
-}
-
-"%has_attr%" <- function(x, which) !is.null(attr(x, which, exact = TRUE))
-
-has_attribute <- function(x, which) !is.null(attr(x, which, exact = TRUE))
-
-has_name <- function(x, which) which %in% names(x)
-
-
-is.flag <- function(x) identical(x, TRUE) || identical(x, FALSE)
-attr(is.flag, "fail") <- function(call, env) {
-  paste0(deparse(call$x), " is not TRUE or FALSE.")
-}
-
-is.dir <- function(x) file.info(x)$isdir
-attr(is.dir, "fail") <- function(call, env) {
-  paste0("Path '", eval(call$x, env), "' is not a directory.")
-}
-
-# You can create compound assertions by calling assert_that within your
-# assertion function. (Probably need slightly better way to handle this
-# so it doesn't clutter up the traceback)
-dir.exists <- function(x) {
-  assert_that(is.string(x), file.exists(x), is.dir(x))
-}
-
 # The default failure message works in the same way as stopifnot, so you can
 # continue to use any function that returns a logical value: you just won't
 # get as nice an error message
@@ -138,5 +77,3 @@ fail_default <- function(call, env) {
 
   paste0(call_string, " is not TRUE")
 }
-
-"%||%" <- function(a, b) if (is.null(a)) b else a
