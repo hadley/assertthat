@@ -36,7 +36,7 @@ assert_that <- function(..., env = parent.frame()) {
     check_result(res <- eval(assertion, env = env))
     if (res) next
 
-    if (res %has_attr% "msg") {
+    if (has_attribute(res, "msg")) {
       msg <- attr(res, "msg")
     } else {
       msg <- get_message(assertion, env)
