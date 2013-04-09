@@ -13,7 +13,7 @@ Collate:
     'assert-that.r'
     'assertions.r'
     'base.r'
+    'base-comparison.r'
     'base-is.r'
-    'base-logical.r'
     'base-misc.r'
     'utils.r'
