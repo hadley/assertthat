@@ -1,3 +1,6 @@
+#' @include on-failure.r
+NULL
+
 #' Is an object a string?
 #'
 #' @family assertions

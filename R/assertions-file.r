@@ -1,3 +1,6 @@
+#' @include on-failure.r
+NULL
+
 path_is_not <- function(thing, var = "x") {
   function(call, env) {
     paste0("Path '", eval(call[[var]], env), "' is not ", thing)

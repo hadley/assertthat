@@ -11,6 +11,7 @@ Depends:
 License: GPL-3
 Collate:
     'assert-that.r'
+    'on-failure.r'
     'assertions-file.r'
     'assertions.r'
     'base.r'
@@ -19,4 +20,3 @@ Collate:
     'base-logical.r'
     'base-misc.r'
     'utils.r'
-    'on-failure.r'
