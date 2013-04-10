@@ -1,7 +1,9 @@
 #' Assert that certain conditions are true.
 #'
-#' This function works in the same way as \code{\link{stopifnot}} but is
-#' designed to give informative error messages.
+#' \code{assert_that} is a drop-in replacement for \code{\link{stopifnot}} but
+#' is designed to give informative error messages. To make your own
+#' assertions that work with \code{assert_that}, see the help for
+#' \code{\link{on_failure}}.
 #'
 #' @param ... unnamed expressions that describe the conditions to be tested.
 #'   Rather than combining expressions with \code{&&}, separate them by commas
@@ -10,15 +12,24 @@
 #'   assertions.
 #' @export
 #' @examples
-#' \dontrun{
 #' x <- 1
+#' # assert_that() generates errors, so can't be usefully run in
+#' # examples
+#' \dontrun{
 #' assert_that(is.character(x))
 #' assert_that(length(x) == 3)
-#' assert_that(dir.exists("asdf"))
+#' assert_that(is.dir("asdf"))
 #' y <- tempfile()
 #' writeLines("", y)
-#' assert_that(dir_exists(y))
+#' assert_that(is.dir(y))
 #' }
+#'
+#' # But see_if just returns the values, so you'll see that a lot
+#' # in the examples: but remember to use assert_that in your code.
+#' see_if(is.character(x))
+#' see_if(length(x) == 3)
+#' see_if(is.dir(17))
+#' see_if(is.dir("asdf"))
 assert_that <- function(..., env = parent.frame()) {
   res <- see_if(..., env = env)
   if (res) return(TRUE)
@@ -26,6 +37,13 @@ assert_that <- function(..., env = parent.frame()) {
   stop(assertError(attr(res, "msg")))
 }
 
+assertError <- function (message, call = NULL) {
+  class <- c("assertError", "simpleError", "error", "condition")
+  structure(list(message = message, call = call), class = class)
+}
+
+#' @rdname assert_that
+#' @export
 see_if <- function(..., env = parent.frame()) {
   asserts <- eval(substitute(alist(...)))
 
@@ -76,7 +94,7 @@ get_message <- function(res, call, env = parent.frame()) {
 
 # The default failure message works in the same way as stopifnot, so you can
 # continue to use any function that returns a logical value: you just won't
-# get as nice an error message
+# get a friendly error message
 fail_default <- function(call, env) {
   call_string <- deparse(call, width.cutoff = 60L)
   if (length(call_string) > 1L) ch <- paste0(call_string[1L], "...")
@@ -91,7 +109,3 @@ fail_default <- function(call, env) {
 }
 on_failure <- function(x) attr(x, "fail")
 
-assertError <- function (message, call = NULL) {
-  class <- c("assertError", "simpleError", "error", "condition")
-  structure(list(message = message, call = call), class = class)
-}
