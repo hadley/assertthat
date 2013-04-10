@@ -1,9 +1,18 @@
 #' Assert that certain conditions are true.
 #'
 #' \code{assert_that} is a drop-in replacement for \code{\link{stopifnot}} but
-#' is designed to give informative error messages. To make your own
-#' assertions that work with \code{assert_that}, see the help for
-#' \code{\link{on_failure}}.
+#' is designed to give informative error messages.
+#'
+#' @section Assertions:
+#'
+#' Assertion functions should return a single \code{TRUE} or \code{FALSE}:
+#' any other result is an error, and \code{assert_that} will complain about
+#' it. This will always be the case for the assertions provided by
+#' \code{assertthat}, but you may need be a more careful for
+#' base R functions.
+#'
+#' To make your own assertions that work with \code{assert_that},
+#' see the help for \code{\link{on_failure}}.
 #'
 #' @param ... unnamed expressions that describe the conditions to be tested.
 #'   Rather than combining expressions with \code{&&}, separate them by commas
