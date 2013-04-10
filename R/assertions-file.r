@@ -10,7 +10,6 @@ path_is_not <- function(thing, var = "x") {
 #' Useful test related to files
 #'
 #' @param path a file path to examine
-#' @export
 #' @name assertions-file
 #' @examples
 #' see_if(is.dir(1))
