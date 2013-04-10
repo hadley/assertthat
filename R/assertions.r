@@ -1,7 +1,7 @@
 #' Is an object a string?
 #'
-#' @export
 #' @family assertions
+#' @export
 #' @examples
 #' see_if(is.string(1:3))
 #' see_if(is.string(c("a", "b")))
@@ -13,8 +13,8 @@ on_failure(is.string) <- function(call, env) {
 
 #' Is an object a boolean flag?
 #'
-#' @export
 #' @family assertions
+#' @export
 #' @examples
 #' see_if(is.flag(1:3))
 #' see_if(is.flag("a"))
@@ -39,30 +39,56 @@ on_failure(has_name) <- function(call, env) {
 }
 "%has_name%" <- has_name
 
+#' Is an object a count?
+#'
+#' @family assertions
 #' @export
+#' @examples
+#' see_if(is_count("a"))
+#' see_if(is_count(-1))
+#' see_if(is_count(1:5))
+#' see_if(is_count(1.5))
 is_count <- function(x) {
-  assert_that(length(x) == 1, is.numeric(x))
+  if (length(x) != 1) return(FALSE)
+  if (!is.numeric(x)) return(FALSE)
 
-  if (is.double(x)) {
-    assert_that(trunc(x) == x)
-  }
+  if (is.double(x) && trunc(x) != x) return(FALSE)
+  x > 0
 }
 on_failure(is_count) <- function(call, env) {
   paste0(deparse(call$x), " is not a single positive integer")
 }
 
+#' Does object contain any missing values?
+#'
+#' @family assertions
 #' @export
-anyNA <- function(x) {
-  any(is.na(x))
+#' @examples
+#' see_if(noNA("a"))
+#' see_if(noNA(c(TRUE, NA)))
+#' x <- sample(c(1:10, NA), 100, rep = TRUE)
+#' see_if(noNA(x))
+noNA <- function(x) {
+  !(any(is.na(x)))
 }
-on_failure(anyNA) <- function(call, env) {
-  paste0(deparse(call$x), " contains missing values")
+on_failure(noNA) <- function(call, env) {
+  n <- sum(is.na(eval(call$x, env)))
+  paste0(deparse(call$x), " contains ", n, " missing values")
 }
 
-
+#' Are two objects equal?
+#'
+#' @param x,y objects to compare
+#' @param ... additional arguments passed to \code{\link{all.equal}}
+#' @family assertions
 #' @export
-are_equal <- function(x, y) {
-  isTRUE(all.equal(x, y))
+#' @examples
+#' x <- 2
+#' see_if(are_equal(x, 1.9))
+#' see_if(are_equal(x, 1.999, tol = 0.01))
+#' see_if(are_equal(x, 2))
+are_equal <- function(x, y, ...) {
+  isTRUE(all.equal(x, y, ...))
 }
 on_failure(are_equal) <- function(call, env) {
   paste0(deparse(call$x), " not equal to ", deparse(call$y))

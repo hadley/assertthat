@@ -13,6 +13,8 @@ see_if(is.string(c("a", "b")))
 see_if(is.string("x"))
 }
 \seealso{
-  Other assertions: \code{\link{is.flag}}
+  Other assertions: \code{\link{are_equal}},
+  \code{\link{is.flag}}, \code{\link{is_count}},
+  \code{\link{noNA}}
 }
 

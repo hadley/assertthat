@@ -14,6 +14,8 @@ see_if(is.flag(c(FALSE, FALSE, TRUE)))
 see_if(is.flag(FALSE)
 }
 \seealso{
-  Other assertions: \code{\link{is.string}}
+  Other assertions: \code{\link{are_equal}},
+  \code{\link{is.string}}, \code{\link{is_count}},
+  \code{\link{noNA}}
 }
 
