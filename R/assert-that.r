@@ -20,7 +20,7 @@
 #' assert_that(dir_exists(y))
 #' }
 assert_that <- function(..., env = parent.frame()) {
-  asserts <- as.list(sys.call())[-1]
+  asserts <- eval(substitute(alist(...)))
 
   # Set global state to determine in an assert_that is nested inside another
   # assert_that - if so, it will return the message instead of erroring out
@@ -44,9 +44,15 @@ assert_that <- function(..., env = parent.frame()) {
     }
   }
 
-  invisible(TRUE)
+  TRUE
 }
 
+see_if <- function(..., env = parent.frame()) {
+  old_ops <- options(in_assert = TRUE)
+  on.exit(options(old_ops))
+
+  assert_that(..., env = env)
+}
 
 check_result <- function(x) {
   if (!is.logical(x))

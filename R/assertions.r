@@ -1,10 +1,25 @@
+#' Is an object a string?
+#'
 #' @export
+#' @family assertions
+#' @examples
+#' see_if(is.string(1:3))
+#' see_if(is.string(c("a", "b")))
+#' see_if(is.string("x"))
 is.string <- function(x) is.character(x) && length(x) == 1
 on_failure(is.string) <- function(call, env) {
-  paste0(deparse(call$x), " is not a string.")
+  paste0(deparse(call$x), " is not a length one character vector.")
 }
 
+#' Is an object a boolean flag?
+#'
 #' @export
+#' @family assertions
+#' @examples
+#' see_if(is.flag(1:3))
+#' see_if(is.flag("a"))
+#' see_if(is.flag(c(FALSE, FALSE, TRUE)))
+#' see_if(is.flag(FALSE)
 is.flag <- function(x) identical(x, TRUE) || identical(x, FALSE)
 on_failure(is.flag) <- function(call, env) {
   paste0(deparse(call$x), " is not TRUE or FALSE.")
