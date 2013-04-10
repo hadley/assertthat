@@ -19,3 +19,4 @@ Collate:
     'base-logical.r'
     'base-misc.r'
     'utils.r'
+    'on-failure.r'
