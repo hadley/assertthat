@@ -30,18 +30,34 @@ on_failure(is.flag) <- function(call, env) {
   paste0(deparse(call$x), " is not TRUE or FALSE.")
 }
 
+#' Has attribute or name?
+#'
+#' @param x object to test
+#' @param which name or attribute
 #' @export
+#' @examples
+#' has_attr(has_attr, "fail")
+#' x <- 10
+#' x %has_attr% "a"
+#'
+#' y <- list(a = 1, b = 2)
+#' see_if(y %has_name% "c")
 has_attr <- function(x, which) !is.null(attr(x, which, exact = TRUE))
 on_failure(has_attr) <- function(call, env) {
   paste0(deparse(call$x), " does not have attribute ", eval(call$which, env))
 }
+#' @export
+#' @rdname has_attr
 "%has_attr%" <- has_attr
 
 #' @export
+#' @rdname has_attr
 has_name <- function(x, which) which %in% names(x)
 on_failure(has_name) <- function(call, env) {
   paste0(deparse(call$x), " does not have name ", eval(call$which, env))
 }
+#' @export
+#' @rdname has_attr
 "%has_name%" <- has_name
 
 #' Is an object a count?

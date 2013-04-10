@@ -1,4 +1,6 @@
 export("%has_args%")
+export("%has_attr%")
+export("%has_name%")
 export("on_failure<-")
 export(are_equal)
 export(assert_that)
