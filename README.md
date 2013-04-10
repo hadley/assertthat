@@ -19,6 +19,21 @@ assert_that(is.numeric(x))
 
 This is a good defensive programming technique, and is useful as source-code documentation: you can see exactly what your function expects when you come back to it in the future.  It is partly a response to the lack of static typing in R, but it is much more general. There are many conditions (like `length(x) == length(y)`) that are difficult to assert in a type system.
 
+## New assertions
+
+As well as all the functions provided by R, assertthat provides a few more that I use a lot:
+
+* `is.flag(x)`: is x `TRUE` or `FALSE`? (a boolean flag)
+* `is.string(x)`: is x a length 1 character vector?
+* `has_name(x, nm)`, `x %has_name% nm`: does `x` have component `nm`?
+* `has_attr(x, attr)`, `x %has_attr% attr`: does `x` have attribute `attr`?
+* `is_count(x)`: is x a single positive integer?
+* `are_equal(x, y)`: are `x` and `y` equal?
+* `noNA(x)`: is `x` free from missing values?
+* `is.dir(path)`: is `path` a directory?
+* `is.writeable(path)`/`is.readable(path)`: is `path` writeable/readable?
+* `has_extension(path, extension)`: does `file` have given `extension`?
+
 ## `assert_that` and `see_if`
 
 There are two main functions in assertthat: 
