@@ -26,6 +26,16 @@ on_failure(is.writeable) <- path_is_not("writeable")
 is.readable <- function(path) file.access(path, mode = 4)
 on_failure(is.readable) <- path_is_not("readable")
 
+#' @importFrom tools file_ext
+has_extension <- function(x, ext) {
+  file_ext(x) == ext
+}
+on_failure(has_extension) <- function(call, env) {
+  path <- eval(call$x, env)
+  ext <- eval(call$ext, env)
+  paste0("File '", basename(path), "' does not have extension", ext)
+}
+
 
 dir_exists <- function(x) {
   assert_that(is.string(x), file.exists(x), is.dir(x))

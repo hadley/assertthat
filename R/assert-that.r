@@ -36,12 +36,7 @@ assert_that <- function(..., env = parent.frame()) {
     check_result(res <- eval(assertion, env = env))
     if (res) next
 
-    if (has_attribute(res, "msg")) {
-      msg <- attr(res, "msg")
-    } else {
-      msg <- get_message(assertion, env)
-    }
-
+    msg <- get_message(res, assertion, env)
     if (in_assert) {
       return(structure(FALSE, msg = msg))
     } else {
@@ -51,6 +46,7 @@ assert_that <- function(..., env = parent.frame()) {
 
   invisible(TRUE)
 }
+
 
 check_result <- function(x) {
   if (!is.logical(x))
@@ -64,8 +60,12 @@ check_result <- function(x) {
   TRUE
 }
 
-get_message <- function(call, env = parent.frame()) {
+get_message <- function(res, call, env = parent.frame()) {
   stopifnot(is.call(call), length(call) >= 1)
+
+  if (has_attr(res, "msg")) {
+    return(attr(res, "msg"))
+  }
 
   f <- eval(call[[1]], env)
   if (!is.primitive(f)) call <- match.call(f, call)
@@ -86,6 +86,7 @@ fail_default <- function(call, env) {
 }
 
 "on_failure<-" <- function(x, value) {
+  stopifnot(is.function(x), identical(names(formals(value)), c("call", "env")))
   attr(x, "fail") <- value
   x
 }

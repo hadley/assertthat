@@ -40,3 +40,10 @@ base_fs$is.name <- is_not("a name")
 base_fs$is.pairlist <- is_not("a pairlist")
 base_fs$is.recursive <- is_not("a recursive object")
 base_fs$is.symbol <- is_not("a name")
+
+
+# Catch all
+base_fs$inherits <- function(call, env) {
+  class <- eval(call$what, env)
+  paste0(deparse(call$x), " does not inherit from class ", class)
+}
