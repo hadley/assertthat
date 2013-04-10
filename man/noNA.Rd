@@ -4,6 +4,9 @@
 \usage{
   noNA(x)
 }
+\arguments{
+  \item{x}{object to test}
+}
 \description{
   Does object contain any missing values?
 }

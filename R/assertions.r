@@ -4,6 +4,7 @@ NULL
 #' Is an object a string?
 #'
 #' @family assertions
+#' @param x object to test
 #' @export
 #' @examples
 #' see_if(is.string(1:3))
@@ -16,6 +17,7 @@ on_failure(is.string) <- function(call, env) {
 
 #' Is an object a boolean flag?
 #'
+#' @param x object to test
 #' @family assertions
 #' @export
 #' @examples
@@ -44,6 +46,7 @@ on_failure(has_name) <- function(call, env) {
 
 #' Is an object a count?
 #'
+#' @param x object to test
 #' @family assertions
 #' @export
 #' @examples
@@ -65,6 +68,7 @@ on_failure(is_count) <- function(call, env) {
 #' Does object contain any missing values?
 #'
 #' @family assertions
+#' @param x object to test
 #' @export
 #' @examples
 #' see_if(noNA("a"))

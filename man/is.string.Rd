@@ -4,6 +4,9 @@
 \usage{
   is.string(x)
 }
+\arguments{
+  \item{x}{object to test}
+}
 \description{
   Is an object a string?
 }
