@@ -14,7 +14,7 @@
 see_if(is.flag(1:3))
 see_if(is.flag("a"))
 see_if(is.flag(c(FALSE, FALSE, TRUE)))
-see_if(is.flag(FALSE)
+see_if(is.flag(FALSE))
 }
 \seealso{
   Other assertions: \code{\link{are_equal}},

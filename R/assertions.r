@@ -24,7 +24,7 @@ on_failure(is.string) <- function(call, env) {
 #' see_if(is.flag(1:3))
 #' see_if(is.flag("a"))
 #' see_if(is.flag(c(FALSE, FALSE, TRUE)))
-#' see_if(is.flag(FALSE)
+#' see_if(is.flag(FALSE))
 is.flag <- function(x) identical(x, TRUE) || identical(x, FALSE)
 on_failure(is.flag) <- function(call, env) {
   paste0(deparse(call$x), " is not TRUE or FALSE.")
