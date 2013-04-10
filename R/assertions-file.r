@@ -6,43 +6,56 @@ path_is_not <- function(thing, var = "x") {
 
 #' Useful test related to files
 #'
-#' @param x an existing path
+#' @param path a file path to examine
 #' @export
 #' @name assertions-file
+#' @examples
+#' tmp <- tempfile()
+#' see_if(file.exists(tmp))
+#'
+#' writeLines("x", tmp)
+#' see_if(file.exists(tmp))
+#' see_if(is.dir(tmp))
+#' see_if(is.writeable(tmp))
+#' see_if(is.readable(tmp))
+#' unlink(tmp)
+#'
+#' see_if(is.dir(tmp))
 NULL
 
 #' @export
 #' @rdname assertions-file
-is.dir <- function(x) file.info(x)$isdir
-on_failure(is.dir) <- path_is_not("a directory")
+is.dir <- function(path) {
+  assert_that(is.string(path), file.exists(path))
+  file.info(path)$isdir
+}
+on_failure(is.dir) <- path_is_not("a directory", path)
 
 #' @export
 #' @rdname assertions-file
-is.writeable <- function(path) file.access(path, mode = 2)
-on_failure(is.writeable) <- path_is_not("writeable")
+is.writeable <- function(path) {
+  assert_that(is.string(path), file.exists(path))
+  file.access(path, mode = 2)[[1]] == 0
+}
+on_failure(is.writeable) <- path_is_not("writeable", "path")
 
 #' @export
 #' @rdname assertions-file
-is.readable <- function(path) file.access(path, mode = 4)
-on_failure(is.readable) <- path_is_not("readable")
+is.readable <- function(path) {
+  assert_that(is.string(x), file.exists(x))
+  file.access(path, mode = 4)[[1]] == 0
+}
+on_failure(is.readable) <- path_is_not("readable", "path")
 
+#' @param ext extension to test for (\code{has_extension} only)
 #' @importFrom tools file_ext
-has_extension <- function(x, ext) {
-  file_ext(x) == ext
+#' @export
+#' @rdname assertions-file
+has_extension <- function(path, ext) {
+  file_ext(path) == ext
 }
 on_failure(has_extension) <- function(call, env) {
-  path <- eval(call$x, env)
+  path <- eval(call$path, env)
   ext <- eval(call$ext, env)
   paste0("File '", basename(path), "' does not have extension", ext)
-}
-
-
-dir_exists <- function(x) {
-  assert_that(is.string(x), file.exists(x), is.dir(x))
-}
-is_writeable <- function(path) {
-  assert_that(is.string(x), file.exists(x), is.writeable(x))
-}
-is_readable <- function(path) {
-  assert_that(is.string(x), file.exists(x), is.readable(x))
 }
