@@ -19,6 +19,13 @@ assert_that(is.numeric(x))
 
 This is a good defensive programming technique, and is useful as source-code documentation: you can see exactly what your function expects when you come back to it in the future.  It is partly a response to the lack of static typing in R, but it is much more general. There are many conditions (like `length(x) == length(y)`) that are difficult to assert in a type system.
 
+`assertthat` is not yet available on CRAN, but you can install it with devtools:
+
+```R
+library(devtools)
+install_github("assertthat")
+```
+
 ## New assertions
 
 As well as all the functions provided by R, assertthat provides a few more that I use a lot:
