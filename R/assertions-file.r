@@ -10,8 +10,11 @@ path_is_not <- function(thing, var = "x") {
 #' @export
 #' @name assertions-file
 #' @examples
+#' see_if(is.dir(1))
+#'
 #' tmp <- tempfile()
 #' see_if(file.exists(tmp))
+#' see_if(is.dir(tmp))
 #'
 #' writeLines("x", tmp)
 #' see_if(file.exists(tmp))
@@ -20,7 +23,7 @@ path_is_not <- function(thing, var = "x") {
 #' see_if(is.readable(tmp))
 #' unlink(tmp)
 #'
-#' see_if(is.dir(tmp))
+#' see_if(is.readable(tmp))
 NULL
 
 #' @export
@@ -29,7 +32,7 @@ is.dir <- function(path) {
   assert_that(is.string(path), file.exists(path))
   file.info(path)$isdir
 }
-on_failure(is.dir) <- path_is_not("a directory", path)
+on_failure(is.dir) <- path_is_not("a directory", "path")
 
 #' @export
 #' @rdname assertions-file
@@ -42,7 +45,7 @@ on_failure(is.writeable) <- path_is_not("writeable", "path")
 #' @export
 #' @rdname assertions-file
 is.readable <- function(path) {
-  assert_that(is.string(x), file.exists(x))
+  assert_that(is.string(path), file.exists(path))
   file.access(path, mode = 4)[[1]] == 0
 }
 on_failure(is.readable) <- path_is_not("readable", "path")

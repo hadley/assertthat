@@ -20,38 +20,31 @@
 #' assert_that(dir_exists(y))
 #' }
 assert_that <- function(..., env = parent.frame()) {
-  asserts <- eval(substitute(alist(...)))
+  res <- see_if(..., env = env)
+  if (res) return(TRUE)
 
-  # Set global state to determine in an assert_that is nested inside another
-  # assert_that - if so, it will return the message instead of erroring out
-  # This reduces the depth of the traceback and makes it easier for users
-  # to understand what's gone wrong.
-  in_assert <- getOption("in_assert", FALSE)
-  if (!in_assert) {
-    old_ops <- options(in_assert = TRUE)
-    on.exit(options(old_ops))
-  }
-
-  for (assertion in asserts) {
-    check_result(res <- eval(assertion, env = env))
-    if (res) next
-
-    msg <- get_message(res, assertion, env)
-    if (in_assert) {
-      return(structure(FALSE, msg = msg))
-    } else {
-      stop(msg, call. = FALSE)
-    }
-  }
-
-  TRUE
+  stop(assertError(attr(res, "msg")))
 }
 
 see_if <- function(..., env = parent.frame()) {
-  old_ops <- options(in_assert = TRUE)
-  on.exit(options(old_ops))
+  asserts <- eval(substitute(alist(...)))
 
-  assert_that(..., env = env)
+  for (assertion in asserts) {
+    res <- tryCatch({
+      eval(assertion, env = env)
+    }, assertError = function(e) {
+      structure(FALSE, msg = e$message)
+    })
+    check_result(res)
+
+    # Failed, so figure out message to produce
+    if (!res) {
+      msg <- get_message(res, assertion, env)
+      return(structure(FALSE, msg = msg))
+    }
+  }
+
+  res
 }
 
 check_result <- function(x) {
@@ -98,4 +91,7 @@ fail_default <- function(call, env) {
 }
 on_failure <- function(x) attr(x, "fail")
 
-
+assertError <- function (message, call = NULL) {
+  class <- c("assertError", "simpleError", "error", "condition")
+  structure(list(message = message, call = call), class = class)
+}
