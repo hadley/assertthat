@@ -101,19 +101,36 @@ on_failure(are_equal) <- function(call, env) {
   paste0(deparse(call$x), " not equal to ", deparse(call$y))
 }
 
+#' Missing is functions.
+#'
+#' @param x object to test
+#' @family assertions
+#' @name assert-is
+#' @examples
+#' a <- Sys.time()
+#' is.time(a)
+#' b <- Sys.Date()
+#' is.date(b)
+#' c <- try(stop("!!"))
+#' is.error(c)
+NULL
+
 #' @export
+#' @rdname assert-is
 is.error <- function(x) inherits(x, "try-error")
 on_failure(is.error) <- function(call, env) {
   paste0(deparse(call$x), " is not a try-error")
 }
 
 #' @export
+#' @rdname assert-is
 is.time <- function(x) inherits(x, "POSIXt")
 on_failure(is.time) <- function(call, env) {
   paste0(deparse(call$x), " is not a POSIXt date-time object")
 }
 
 #' @export
+#' @rdname assert-is
 is.date <- function(x) inherits(x, "Date")
 on_failure(is.date) <- function(call, env) {
   paste0(deparse(call$x), " is not a Date object")

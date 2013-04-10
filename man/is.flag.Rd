@@ -18,7 +18,9 @@ see_if(is.flag(FALSE))
 }
 \seealso{
   Other assertions: \code{\link{are_equal}},
-  \code{\link{is.string}}, \code{\link{is_count}},
+  \code{\link{assert-is}}, \code{\link{is.date}},
+  \code{\link{is.error}}, \code{\link{is.string}},
+  \code{\link{is.time}}, \code{\link{is_count}},
   \code{\link{noNA}}
 }
 
