@@ -21,6 +21,6 @@ see_if(is_count(1.5))
   \code{\link{assert-is}}, \code{\link{is.date}},
   \code{\link{is.error}}, \code{\link{is.flag}},
   \code{\link{is.string}}, \code{\link{is.time}},
-  \code{\link{noNA}}
+  \code{\link{noNA}}, \code{\link{not_empty}}
 }
 

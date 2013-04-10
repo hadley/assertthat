@@ -36,6 +36,7 @@ As well as all the functions provided by R, assertthat provides a few more that 
 * `has_attr(x, attr)`, `x %has_attr% attr`: does `x` have attribute `attr`?
 * `is_count(x)`: is x a single positive integer?
 * `are_equal(x, y)`: are `x` and `y` equal?
+* `not_empty(x)`: are all dimensions of `x` greater than 0?
 * `noNA(x)`: is `x` free from missing values?
 * `is.dir(path)`: is `path` a directory?
 * `is.writeable(path)`/`is.readable(path)`: is `path` writeable/readable?

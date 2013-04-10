@@ -1,26 +1,25 @@
-\name{noNA}
-\alias{noNA}
-\title{Does object contain any missing values?}
+\name{not_empty}
+\alias{not_empty}
+\title{Check an object doesn't have any empty dimensions}
 \usage{
-  noNA(x)
+  not_empty(x)
 }
 \arguments{
   \item{x}{object to test}
 }
 \description{
-  Does object contain any missing values?
+  Check an object doesn't have any empty dimensions
 }
 \examples{
-see_if(noNA("a"))
-see_if(noNA(c(TRUE, NA)))
-x <- sample(c(1:10, NA), 100, rep = TRUE)
-see_if(noNA(x))
+not_empty(numeric())
+not_empty(mtcars[0, ])
+not_empty(mtcars[, 0])
 }
 \seealso{
   Other assertions: \code{\link{are_equal}},
   \code{\link{assert-is}}, \code{\link{is.date}},
   \code{\link{is.error}}, \code{\link{is.flag}},
   \code{\link{is.string}}, \code{\link{is.time}},
-  \code{\link{is_count}}, \code{\link{not_empty}}
+  \code{\link{is_count}}, \code{\link{noNA}}
 }
 

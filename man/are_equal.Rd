@@ -24,6 +24,6 @@ see_if(are_equal(x, 2))
   \code{\link{is.date}}, \code{\link{is.error}},
   \code{\link{is.flag}}, \code{\link{is.string}},
   \code{\link{is.time}}, \code{\link{is_count}},
-  \code{\link{noNA}}
+  \code{\link{noNA}}, \code{\link{not_empty}}
 }
 

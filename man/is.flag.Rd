@@ -21,6 +21,6 @@ see_if(is.flag(FALSE))
   \code{\link{assert-is}}, \code{\link{is.date}},
   \code{\link{is.error}}, \code{\link{is.string}},
   \code{\link{is.time}}, \code{\link{is_count}},
-  \code{\link{noNA}}
+  \code{\link{noNA}}, \code{\link{not_empty}}
 }
 

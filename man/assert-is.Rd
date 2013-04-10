@@ -28,6 +28,7 @@ is.error(c)
 \seealso{
   Other assertions: \code{\link{are_equal}},
   \code{\link{is.flag}}, \code{\link{is.string}},
-  \code{\link{is_count}}, \code{\link{noNA}}
+  \code{\link{is_count}}, \code{\link{noNA}},
+  \code{\link{not_empty}}
 }
 

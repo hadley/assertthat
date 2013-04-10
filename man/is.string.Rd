@@ -20,6 +20,6 @@ see_if(is.string("x"))
   \code{\link{assert-is}}, \code{\link{is.date}},
   \code{\link{is.error}}, \code{\link{is.flag}},
   \code{\link{is.time}}, \code{\link{is_count}},
-  \code{\link{noNA}}
+  \code{\link{noNA}}, \code{\link{not_empty}}
 }
 

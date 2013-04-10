@@ -136,7 +136,20 @@ on_failure(is.date) <- function(call, env) {
   paste0(deparse(call$x), " is not a Date object")
 }
 
+#' Check a function has specified arguments
+#'
+#' @param f a function
+#' @param args a character vector of argument names
+#' @param exact if \code{TRUE}, argument names must match \code{args}
+#'   exactly (order and value); otherwise \code{f} just must have at least
+#'   \code{args} in any order
 #' @export
+#' @examples
+#' has_args(mean, "x")
+#' has_args(mean, "x", exact = TRUE)
+#'
+#' see_if(mean %has_args% "x")
+#' see_if(mean %has_args% "y")
 has_args <- function(f, args, exact = FALSE) {
   assert_that(is.function(f))
 
@@ -152,9 +165,21 @@ on_failure(has_args) <- function(call, env) {
 }
 
 #' @export
-is.empty <- function(x) {
-  any((dim(x) %||% length(x)) == 0)
+#' @rdname has_args
+"%has_args%" <- has_args
+
+#' Check an object doesn't have any empty dimensions
+#'
+#' @param x object to test
+#' @family assertions
+#' @export
+#' @examples
+#' not_empty(numeric())
+#' not_empty(mtcars[0, ])
+#' not_empty(mtcars[, 0])
+not_empty <- function(x) {
+  all((dim(x) %||% length(x)) != 0)
 }
-on_failure(is.empty) <- function(call, env) {
+on_failure(not_empty) <- function(call, env) {
   paste0(deparse(call$x), " has an empty dimension")
 }
