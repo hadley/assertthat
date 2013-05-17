@@ -6,8 +6,6 @@ Description: assertthat is an extension to stopifnot() that makes it
     easy to declare the pre and post conditions that you code should
     satisfy, while also produce friendly error messages so that your
     users know what they've done wrong.
-Depends:
-    R (>= 3.0.0)
 License: GPL-3
 Collate:
     'assert-that.r'
