@@ -53,4 +53,8 @@ see_if(length(x) == 3)
 see_if(is.dir(17))
 see_if(is.dir("asdf"))
 }
+\seealso{
+  \code{\link{validate_that}}, which returns a message, but
+  no error if the condition is false.
+}
 
