@@ -49,7 +49,7 @@ There are two main functions in assertthat:
 * `assert_that()`, which raises an error if any expressions is not true, and 
 * `see_if()`, which returns a logical value.
 
-You'll use `assert_that()` in your own code, but you'll mostly see `see_if()` in the examples (because `R CMD check` requires that examples run without errors.
+You'll use `assert_that()` in your own code, but you'll mostly see `see_if()` in the examples (because `R CMD check` requires that examples run without errors).
 
 ## Writing your own assertions
 
