@@ -22,7 +22,7 @@ base_fs$"||" <- function(call, env) {
 }
 
 base_fs$any <- function(call, env) {
-  paste0("No elements of ", deparse(call[[1]]), " are true")
+  paste0("No elements of ", deparse(call[[2]]), " are true")
 }
 base_fs$all <- function(call, env) {
   res <- eval(call[[2]], env)
@@ -30,5 +30,5 @@ base_fs$all <- function(call, env) {
   if (length(i) > 10) i <- c(i[1:5], "...")
 
   paste0("Elements ", paste(i, collapse = ", "), " of ",
-    deparse(call[[1]]), " are not true")
+    deparse(call[[2]]), " are not true")
 }
