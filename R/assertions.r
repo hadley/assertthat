@@ -15,6 +15,11 @@ on_failure(is.string) <- function(call, env) {
   paste0(deparse(call$x), " is not a length one character vector.")
 }
 
+is.number <- function(x) is.numeric(x) && length(x) == 1
+on_failure(is.number) <- function(call, env) {
+  paste0(deparse(call$x), " is not a length one numeric vector.")
+}
+
 #' Is an object a boolean flag?
 #'
 #' @param x object to test
@@ -28,6 +33,40 @@ on_failure(is.string) <- function(call, env) {
 is.flag <- function(x) identical(x, TRUE) || identical(x, FALSE)
 on_failure(is.flag) <- function(call, env) {
   paste0(deparse(call$x), " is not TRUE or FALSE.")
+}
+
+
+is.scalar <- function(x, type = NULL) {
+  if (is.null(type)) {
+    length(x) == 1L
+  } else {
+    length(x) == 1L && typeof(x) == type
+  }
+}
+on_failure(is.scalar) <- function(call, env) {
+  type <- eval(call$type, env)
+  if (is.null(type)) {
+    paste0(deparse(call$x), " is not a scalar ", type, ".")
+  } else {
+    paste0(deparse(call$x), " is not a scalar.")
+  }
+}
+
+is.integerish <- function(x) {
+  is.integer(x) || all(x == as.integer(x))
+}
+
+is.positive.integer
+is.negative.integer
+is.positive.double
+is.negative.double
+
+is.named <- function(x) {
+  nm <- names(x)
+  !is.null(nm) && all(nm != "")
+}
+on_failure(is.named) <- function(call, env) {
+  paste0("Not all elements of ", deparse(call$x), " have names.")
 }
 
 #' Has attribute or name?
