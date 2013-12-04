@@ -221,7 +221,7 @@ on_failure(has_args) <- function(call, env) {
 
 #' @export
 #' @rdname has_args
-"%has_args%" <- has_args
+"%has_args%" <- function(f, args) has_args(f, args)
 
 #' Check an object doesn't have any empty dimensions
 #'
