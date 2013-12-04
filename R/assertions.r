@@ -56,10 +56,10 @@ is.integerish <- function(x) {
   is.integer(x) || all(x == as.integer(x))
 }
 
-is.positive.integer
-is.negative.integer
-is.positive.double
-is.negative.double
+# is.positive.integer
+# is.negative.integer
+# is.positive.double
+# is.negative.double
 
 is.named <- function(x) {
   nm <- names(x)
