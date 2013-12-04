@@ -19,6 +19,8 @@
 #'   so that better error messages can be generated.
 #' @param env (advanced use only) the environment in which to evaluate the
 #'   assertions.
+#' @seealso \code{\link{validate_that}}, which returns a message (not an error)
+#'   if the condition is false.
 #' @export
 #' @examples
 #' x <- 1
