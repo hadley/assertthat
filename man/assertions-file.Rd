@@ -6,13 +6,13 @@
 \alias{is.writeable}
 \title{Useful test related to files}
 \usage{
-  is.dir(path)
+is.dir(path)
 
-  is.writeable(path)
+is.writeable(path)
 
-  is.readable(path)
+is.readable(path)
 
-  has_extension(path, ext)
+has_extension(path, ext)
 }
 \arguments{
   \item{path}{a file path to examine}
@@ -21,7 +21,7 @@
   only)}
 }
 \description{
-  Useful test related to files
+Useful test related to files
 }
 \examples{
 see_if(is.dir(1))

@@ -3,9 +3,9 @@
 \alias{see_if}
 \title{Assert that certain conditions are true.}
 \usage{
-  assert_that(..., env = parent.frame())
+assert_that(..., env = parent.frame())
 
-  see_if(..., env = parent.frame())
+see_if(..., env = parent.frame())
 }
 \arguments{
   \item{...}{unnamed expressions that describe the
@@ -17,9 +17,9 @@
   to evaluate the assertions.}
 }
 \description{
-  \code{assert_that} is a drop-in replacement for
-  \code{\link{stopifnot}} but is designed to give
-  informative error messages.
+\code{assert_that} is a drop-in replacement for
+\code{\link{stopifnot}} but is designed to give informative
+error messages.
 }
 \section{Assertions}{
   Assertion functions should return a single \code{TRUE} or

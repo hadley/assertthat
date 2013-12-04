@@ -5,13 +5,13 @@
 \alias{has_name}
 \title{Has attribute or name?}
 \usage{
-  has_attr(x, which)
+has_attr(x, which)
 
-  %has_attr%(x, which)
+x \%has_attr\% which
 
-  has_name(x, which)
+has_name(x, which)
 
-  %has_name%(x, which)
+x \%has_name\% which
 }
 \arguments{
   \item{x}{object to test}
@@ -19,7 +19,7 @@
   \item{which}{name or attribute}
 }
 \description{
-  Has attribute or name?
+Has attribute or name?
 }
 \examples{
 has_attr(has_attr, "fail")

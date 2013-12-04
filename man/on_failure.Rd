@@ -3,9 +3,9 @@
 \alias{on_failure<-}
 \title{Custom failure messages for assertions.}
 \usage{
-  on_failure(x)
+on_failure(x)
 
-  on_failure(x) <- value
+on_failure(x) <- value
 }
 \arguments{
   \item{x}{a assertion function that returns \code{TRUE} if
@@ -16,7 +16,7 @@
   string.}
 }
 \description{
-  Custom failure messages for assertions.
+Custom failure messages for assertions.
 }
 \examples{
 is_odd <- function(x) {

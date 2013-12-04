@@ -3,9 +3,9 @@
 \alias{has_args}
 \title{Check a function has specified arguments}
 \usage{
-  has_args(f, args, exact = FALSE)
+has_args(f, args, exact = FALSE)
 
-  %has_args%(f, args, exact = FALSE)
+f \%has_args\% args
 }
 \arguments{
   \item{f}{a function}
@@ -17,7 +17,7 @@
   just must have at least \code{args} in any order}
 }
 \description{
-  Check a function has specified arguments
+Check a function has specified arguments
 }
 \examples{
 has_args(mean, "x")
