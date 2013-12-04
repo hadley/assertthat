@@ -17,9 +17,8 @@ see_if(..., env = parent.frame())
   to evaluate the assertions.}
 }
 \description{
-\code{assert_that} is a drop-in replacement for
-\code{\link{stopifnot}} but is designed to give informative
-error messages.
+\code{assert_that} is a drop-in replacement for \code{\link{stopifnot}} but
+is designed to give informative error messages.
 }
 \section{Assertions}{
   Assertion functions should return a single \code{TRUE} or

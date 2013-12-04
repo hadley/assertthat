@@ -18,9 +18,9 @@ see_if(noNA(x))
 }
 \seealso{
 Other assertions: \code{\link{are_equal}},
-\code{\link{assert-is}}, \code{\link{is.date}},
-\code{\link{is.error}}, \code{\link{is.flag}},
-\code{\link{is.string}}, \code{\link{is.time}},
-\code{\link{is_count}}, \code{\link{not_empty}}
+  \code{\link{assert-is}}, \code{\link{is.date}},
+  \code{\link{is.error}}, \code{\link{is.flag}},
+  \code{\link{is.string}}, \code{\link{is.time}},
+  \code{\link{is_count}}, \code{\link{not_empty}}
 }
 

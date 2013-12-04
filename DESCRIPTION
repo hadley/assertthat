@@ -18,3 +18,4 @@ Collate:
     'base-logical.r'
     'base-misc.r'
     'utils.r'
+Roxygen: list(wrap = FALSE)
