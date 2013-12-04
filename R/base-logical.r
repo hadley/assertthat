@@ -25,7 +25,7 @@ base_fs$any <- function(call, env) {
   paste0("No elements of ", deparse(call[[1]]), " are true")
 }
 base_fs$all <- function(call, env) {
-  res <- eval(call[[1]], env)
+  res <- eval(call[[2]], env)
   i <- which(!res)
   if (length(i) > 10) i <- c(i[1:5], "...")
 
