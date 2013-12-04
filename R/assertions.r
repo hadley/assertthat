@@ -1,57 +1,6 @@
 #' @include on-failure.r
 NULL
 
-#' Is an object a string?
-#'
-#' @family assertions
-#' @param x object to test
-#' @export
-#' @examples
-#' see_if(is.string(1:3))
-#' see_if(is.string(c("a", "b")))
-#' see_if(is.string("x"))
-is.string <- function(x) is.character(x) && length(x) == 1
-on_failure(is.string) <- function(call, env) {
-  paste0(deparse(call$x), " is not a length one character vector.")
-}
-
-is.number <- function(x) is.numeric(x) && length(x) == 1
-on_failure(is.number) <- function(call, env) {
-  paste0(deparse(call$x), " is not a length one numeric vector.")
-}
-
-#' Is an object a boolean flag?
-#'
-#' @param x object to test
-#' @family assertions
-#' @export
-#' @examples
-#' see_if(is.flag(1:3))
-#' see_if(is.flag("a"))
-#' see_if(is.flag(c(FALSE, FALSE, TRUE)))
-#' see_if(is.flag(FALSE))
-is.flag <- function(x) identical(x, TRUE) || identical(x, FALSE)
-on_failure(is.flag) <- function(call, env) {
-  paste0(deparse(call$x), " is not TRUE or FALSE.")
-}
-
-
-is.scalar <- function(x, type = NULL) {
-  if (is.null(type)) {
-    length(x) == 1L
-  } else {
-    length(x) == 1L && typeof(x) == type
-  }
-}
-on_failure(is.scalar) <- function(call, env) {
-  type <- eval(call$type, env)
-  if (is.null(type)) {
-    paste0(deparse(call$x), " is not a scalar ", type, ".")
-  } else {
-    paste0(deparse(call$x), " is not a scalar.")
-  }
-}
-
 is.integerish <- function(x) {
   is.integer(x) || all(x == as.integer(x))
 }
@@ -99,27 +48,6 @@ on_failure(has_name) <- function(call, env) {
 #' @rdname has_attr
 "%has_name%" <- has_name
 
-#' Is an object a count?
-#'
-#' @param x object to test
-#' @family assertions
-#' @export
-#' @examples
-#' see_if(is_count("a"))
-#' see_if(is_count(-1))
-#' see_if(is_count(1:5))
-#' see_if(is_count(1.5))
-is_count <- function(x) {
-  if (length(x) != 1) return(FALSE)
-  if (!is.numeric(x)) return(FALSE)
-
-  if (is.double(x) && trunc(x) != x) return(FALSE)
-  x > 0
-}
-on_failure(is_count) <- function(call, env) {
-  paste0(deparse(call$x), " is not a single positive integer")
-}
-
 #' Does object contain any missing values?
 #'
 #' @family assertions
@@ -161,6 +89,7 @@ on_failure(are_equal) <- function(call, env) {
 #' @param x object to test
 #' @family assertions
 #' @name assert-is
+#' @aliases NULL
 #' @examples
 #' a <- Sys.time()
 #' is.time(a)
