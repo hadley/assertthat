@@ -2,7 +2,7 @@
 NULL
 
 is.integerish <- function(x) {
-  is.integer(x) || all(x == as.integer(x))
+  is.integer(x) || (is.numeric(x) && all(x == as.integer(x)))
 }
 
 # is.positive.integer

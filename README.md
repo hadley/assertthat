@@ -34,7 +34,7 @@ As well as all the functions provided by R, assertthat provides a few more that 
 * `is.string(x)`: is x a length 1 character vector?
 * `has_name(x, nm)`, `x %has_name% nm`: does `x` have component `nm`?
 * `has_attr(x, attr)`, `x %has_attr% attr`: does `x` have attribute `attr`?
-* `is_count(x)`: is x a single positive integer?
+* `is.count(x)`: is x a single positive integer?
 * `are_equal(x, y)`: are `x` and `y` equal?
 * `not_empty(x)`: are all dimensions of `x` greater than 0?
 * `noNA(x)`: is `x` free from missing values?

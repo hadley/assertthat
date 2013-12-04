@@ -30,9 +30,6 @@ validate_that(is.numeric(x))
 validate_that(is.character(x))
 validate_that(length(x) == 3)
 validate_that(is.dir("asdf"))
-y <- tempfile()
-writeLines("", y)
-validate_that(is.dir(y))
 }
 \seealso{
 \code{\link{assert_that}}, which returns an error if the condition

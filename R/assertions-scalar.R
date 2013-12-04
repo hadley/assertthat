@@ -14,6 +14,7 @@ NULL
 NULL
 
 #' @rdname scalar
+#' @export
 #' @examples
 #' # Generic check for scalars
 #' see_if(is.scalar("a"))

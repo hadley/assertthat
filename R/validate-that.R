@@ -18,9 +18,6 @@
 #' validate_that(is.character(x))
 #' validate_that(length(x) == 3)
 #' validate_that(is.dir("asdf"))
-#' y <- tempfile()
-#' writeLines("", y)
-#' validate_that(is.dir(y))
 validate_that <- function(..., env = parent.frame()) {
   res <- see_if(..., env = env)
   if (res) return(TRUE)
