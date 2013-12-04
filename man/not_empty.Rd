@@ -16,12 +16,11 @@ not_empty(mtcars[0, ])
 not_empty(mtcars[, 0])
 }
 \seealso{
-Other assertions: \code{\link{are_equal}},
-  \code{\link{assert-is}}, \code{\link{is.count}},
-  \code{\link{is.date}}, \code{\link{is.error}},
-  \code{\link{is.flag}}, \code{\link{is.number}},
-  \code{\link{is.scalar}}, \code{\link{is.string}},
-  \code{\link{is.time}}, \code{\link{noNA}},
-  \code{\link{scalar}}
+Other assertions: \code{\link{are_equal}};
+  \code{\link{is.count}}, \code{\link{is.flag}},
+  \code{\link{is.number}}, \code{\link{is.scalar}},
+  \code{\link{is.string}}; \code{\link{is.date}},
+  \code{\link{is.error}}, \code{\link{is.time}};
+  \code{\link{noNA}}
 }
 

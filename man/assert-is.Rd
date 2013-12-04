@@ -25,10 +25,10 @@ c <- try(stop("!!"))
 is.error(c)
 }
 \seealso{
-Other assertions: \code{\link{are_equal}},
+Other assertions: \code{\link{are_equal}};
   \code{\link{is.count}}, \code{\link{is.flag}},
   \code{\link{is.number}}, \code{\link{is.scalar}},
-  \code{\link{is.string}}, \code{\link{noNA}},
-  \code{\link{not_empty}}, \code{\link{scalar}}
+  \code{\link{is.string}}; \code{\link{noNA}};
+  \code{\link{not_empty}}
 }
 

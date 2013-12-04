@@ -48,9 +48,9 @@ see_if(is.count(1.5))
 see_if(is.count(1))
 }
 \seealso{
-Other assertions: \code{\link{are_equal}},
-  \code{\link{assert-is}}, \code{\link{is.date}},
-  \code{\link{is.error}}, \code{\link{is.time}},
-  \code{\link{noNA}}, \code{\link{not_empty}}
+Other assertions: \code{\link{are_equal}};
+  \code{\link{is.date}}, \code{\link{is.error}},
+  \code{\link{is.time}}; \code{\link{noNA}};
+  \code{\link{not_empty}}
 }
 
