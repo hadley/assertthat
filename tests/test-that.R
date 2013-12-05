@@ -1,4 +1,4 @@
 library(testthat)
 library(assertthat)
 
-test_check("assertthat")
+test_package("assertthat")
