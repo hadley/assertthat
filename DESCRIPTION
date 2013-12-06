@@ -1,6 +1,6 @@
 Package: assertthat
 Title: Easy pre and post assertions.
-Version: 0.1
+Version: 0.1.0.99
 Authors@R: 'Hadley Wickham <h.wickham@gmail.com> [aut,cre]'
 Description: assertthat is an extension to stopifnot() that makes it
     easy to declare the pre and post conditions that you code should
