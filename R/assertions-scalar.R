@@ -3,7 +3,7 @@ NULL
 
 #' Assert input is a scalar.
 #' 
-#' \code{is.scala} provides a generic method for checking input is a scalar.
+#' \code{is.scalar} provides a generic method for checking input is a scalar.
 #' \code{is.string}, \code{is.flag}, \code{is.number} and \code{is.count}
 #' provide tests for specific types.
 #' 
