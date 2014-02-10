@@ -13,3 +13,7 @@ test_that("all message is useful", {
   x <- c(FALSE, TRUE)
   expect_match(validate_that(all(x)), "Elements .* of x are not true")
 })
+
+test_that("custom message is printed", {
+  expect_equal(validate_that(FALSE, msg = "Custom message"), "Custom message")
+})
