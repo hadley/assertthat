@@ -3,9 +3,9 @@
 \alias{see_if}
 \title{Assert that certain conditions are true.}
 \usage{
-assert_that(..., env = parent.frame())
+assert_that(..., env = parent.frame(), msg = NULL)
 
-see_if(..., env = parent.frame())
+see_if(..., env = parent.frame(), msg = NULL)
 }
 \arguments{
   \item{...}{unnamed expressions that describe the
@@ -15,6 +15,9 @@ see_if(..., env = parent.frame())
 
   \item{env}{(advanced use only) the environment in which
   to evaluate the assertions.}
+
+  \item{msg}{a custom error message to be printed if one of
+  the conditions is false.}
 }
 \description{
 \code{assert_that} is a drop-in replacement for \code{\link{stopifnot}} but
@@ -30,7 +33,8 @@ is designed to give informative error messages.
 
   To make your own assertions that work with
   \code{assert_that}, see the help for
-  \code{\link{on_failure}}.
+  \code{\link{on_failure}}.  Alternatively, a custom
+  message can be specified for each call.
 }
 \examples{
 x <- 1
@@ -43,6 +47,7 @@ assert_that(is.dir("asdf"))
 y <- tempfile()
 writeLines("", y)
 assert_that(is.dir(y))
+assert_that(FALSE, msg = "Custom error message")
 }
 
 # But see_if just returns the values, so you'll see that a lot
@@ -51,6 +56,7 @@ see_if(is.character(x))
 see_if(length(x) == 3)
 see_if(is.dir(17))
 see_if(is.dir("asdf"))
+see_if(5 < 3, msg = "Five is not smaller than three")
 }
 \seealso{
 \code{\link{validate_that}}, which returns a message (not an error)

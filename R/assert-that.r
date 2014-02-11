@@ -12,13 +12,16 @@
 #' base R functions.
 #'
 #' To make your own assertions that work with \code{assert_that},
-#' see the help for \code{\link{on_failure}}.
+#' see the help for \code{\link{on_failure}}.  Alternatively, a custom message
+#' can be specified for each call.
 #'
 #' @param ... unnamed expressions that describe the conditions to be tested.
 #'   Rather than combining expressions with \code{&&}, separate them by commas
 #'   so that better error messages can be generated.
 #' @param env (advanced use only) the environment in which to evaluate the
 #'   assertions.
+#' @param msg a custom error message to be printed if one of the conditions is
+#'   false.
 #' @seealso \code{\link{validate_that}}, which returns a message (not an error)
 #'   if the condition is false.
 #' @export
@@ -33,6 +36,7 @@
 #' y <- tempfile()
 #' writeLines("", y)
 #' assert_that(is.dir(y))
+#' assert_that(FALSE, msg = "Custom error message")
 #' }
 #'
 #' # But see_if just returns the values, so you'll see that a lot
@@ -41,8 +45,9 @@
 #' see_if(length(x) == 3)
 #' see_if(is.dir(17))
 #' see_if(is.dir("asdf"))
-assert_that <- function(..., env = parent.frame()) {
-  res <- see_if(..., env = env)
+#' see_if(5 < 3, msg = "Five is not smaller than three")
+assert_that <- function(..., env = parent.frame(), msg = NULL) {
+  res <- see_if(..., env = env, msg = msg)
   if (res) return(TRUE)
 
   stop(assertError(attr(res, "msg")))
@@ -55,7 +60,7 @@ assertError <- function (message, call = NULL) {
 
 #' @rdname assert_that
 #' @export
-see_if <- function(..., env = parent.frame()) {
+see_if <- function(..., env = parent.frame(), msg = NULL) {
   asserts <- eval(substitute(alist(...)))
 
   for (assertion in asserts) {
@@ -68,7 +73,8 @@ see_if <- function(..., env = parent.frame()) {
 
     # Failed, so figure out message to produce
     if (!res) {
-      msg <- get_message(res, assertion, env)
+      if (is.null(msg))
+        msg <- get_message(res, assertion, env)
       return(structure(FALSE, msg = msg))
     }
   }

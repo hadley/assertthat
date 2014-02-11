@@ -18,8 +18,8 @@
 #' validate_that(is.character(x))
 #' validate_that(length(x) == 3)
 #' validate_that(is.dir("asdf"))
-validate_that <- function(..., env = parent.frame()) {
-  res <- see_if(..., env = env)
+validate_that <- function(..., env = parent.frame(), msg = NULL) {
+  res <- see_if(..., env = env, msg = msg)
   if (res) return(TRUE)
   return(attr(res, "msg"))
 }
