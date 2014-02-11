@@ -2,7 +2,7 @@
 \alias{validate_that}
 \title{Validate that certain conditions are true.}
 \usage{
-validate_that(..., env = parent.frame())
+validate_that(..., env = parent.frame(), msg = NULL)
 }
 \arguments{
   \item{...}{unnamed expressions that describe the
@@ -12,6 +12,9 @@ validate_that(..., env = parent.frame())
 
   \item{env}{(advanced use only) the environment in which
   to evaluate the assertions.}
+
+  \item{msg}{a custom error message to be printed if one of
+  the conditions is false.}
 }
 \value{
 A \code{character} vector if the assertion is false, or \code{TRUE}
