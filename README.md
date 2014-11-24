@@ -49,7 +49,7 @@ As well as all the functions provided by R, assertthat provides a few more that 
 
 ## `assert_that`, `see_if` and `validate_that`
 
-There are two main functions in assertthat: 
+There are three main functions in assertthat: 
 
 * `assert_that()` signal an error
 
