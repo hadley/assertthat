@@ -53,11 +53,10 @@ is.readable <- function(path) {
 on_failure(is.readable) <- path_is_not("readable", "path")
 
 #' @param ext extension to test for (\code{has_extension} only)
-#' @importFrom tools file_ext
 #' @export
 #' @rdname assertions-file
 has_extension <- function(path, ext) {
-  file_ext(path) == ext
+  tools::file_ext(path) == ext
 }
 on_failure(has_extension) <- function(call, env) {
   path <- eval(call$path, env)

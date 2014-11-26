@@ -7,6 +7,8 @@ Description: assertthat is an extension to stopifnot() that makes it
     satisfy, while also producing friendly error messages so that your
     users know what they've done wrong.
 License: GPL-3
+Imports:
+    tools
 Suggests:
     testthat
 Collate:
