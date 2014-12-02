@@ -41,7 +41,7 @@ see_if(is.flag(1:3))
 see_if(is.flag("a"))
 see_if(is.flag(c(FALSE, FALSE, TRUE)))
 see_if(is.flag(FALSE))
-# flag = scalar positive integer
+# count = scalar positive integer
 see_if(is.count("a"))
 see_if(is.count(-1))
 see_if(is.count(1:5))
