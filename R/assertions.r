@@ -12,7 +12,7 @@ is.integerish <- function(x) {
 
 is.named <- function(x) {
   nm <- names(x)
-  !is.null(nm) && all(nm != "", na.rm=TRUE)
+  !is.null(nm) && all(!is.na(nm) & nm != "")
 }
 on_failure(is.named) <- function(call, env) {
   paste0("Not all elements of ", deparse(call$x), " have names.")

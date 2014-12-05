@@ -25,7 +25,7 @@ test_that("is.named works correctly", {
   names(x)[2] <- ""
   expect_false(is.named(x))
   names(x)[2] <- NA
-  expect_true(is.named(x))
+  expect_false(is.named(x))
   names(x) <- NULL
   expect_false(is.named(x))
   
