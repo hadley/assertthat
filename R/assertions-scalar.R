@@ -73,7 +73,7 @@ on_failure(is.flag) <- function(call, env) {
 #' @rdname scalar
 #' @export
 #' @examples
-#' # flag = scalar positive integer
+#' # count = scalar positive integer
 #' see_if(is.count("a"))
 #' see_if(is.count(-1))
 #' see_if(is.count(1:5))

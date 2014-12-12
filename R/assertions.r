@@ -12,7 +12,7 @@ is.integerish <- function(x) {
 
 is.named <- function(x) {
   nm <- names(x)
-  !is.null(nm) && all(nm != "")
+  !is.null(nm) && all(!is.na(nm) & nm != "")
 }
 on_failure(is.named) <- function(call, env) {
   paste0("Not all elements of ", deparse(call$x), " have names.")
@@ -136,7 +136,7 @@ on_failure(is.date) <- function(call, env) {
 #' see_if(mean %has_args% "y")
 has_args <- function(f, args, exact = FALSE) {
   assert_that(is.function(f))
-
+  
   if (exact) {
     identical(args, names(formals(f)))
   } else {
