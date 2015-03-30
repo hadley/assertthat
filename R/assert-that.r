@@ -87,8 +87,8 @@ check_result <- function(x) {
     stop("assert_that: assertion must return a logical value", call. = FALSE)
   if (any(is.na(x)))
     stop("assert_that: missing values present in assertion", call. = FALSE)
-  if (length(x) > 1) {
-    stop("assert_that: assertion has length greater than 1", call. = FALSE)
+  if (length(x) != 1) {
+    stop("assert_that: length of assertion is not 1", call. = FALSE)
   }
 
   TRUE
