@@ -3,6 +3,7 @@
 # See README.md for instructions, or for more configuration options,
 # see the wiki:
 #   https://github.com/craigcitro/r-travis/wiki
+sudo: required
 
 env:
   - global:
