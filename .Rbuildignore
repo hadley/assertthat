@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
+^travis-tool\.sh$
 ^NEWS\.md$
+^data-raw$
