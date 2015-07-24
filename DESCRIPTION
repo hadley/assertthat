@@ -22,6 +22,7 @@ Collate:
     'base-is.r'
     'base-logical.r'
     'base-misc.r'
+    'is-prime.R'
     'utils.r'
     'validate-that.R'
 Roxygen: list(wrap = FALSE)
