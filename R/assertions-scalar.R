@@ -58,7 +58,7 @@ on_failure(is.number) <- function(call, env) {
 #' @rdname scalar
 #' @export
 #' @examples
-#' # flag = scalar numeric/integer vector
+#' # flag = scalar logical vector
 #' see_if(is.flag(1:3))
 #' see_if(is.flag("a"))
 #' see_if(is.flag(c(FALSE, FALSE, TRUE)))

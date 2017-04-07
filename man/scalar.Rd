@@ -36,7 +36,7 @@ see_if(is.string("x"))
 # number = scalar numeric/integer vector
 see_if(is.number(1:3))
 see_if(is.number(1.5))
-# flag = scalar numeric/integer vector
+# flag = scalar logical vector
 see_if(is.flag(1:3))
 see_if(is.flag("a"))
 see_if(is.flag(c(FALSE, FALSE, TRUE)))
