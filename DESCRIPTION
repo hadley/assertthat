@@ -1,5 +1,5 @@
 Package: assertthat
-Title: Easy pre and post assertions.
+Title: Easy pre and post assertions
 Version: 0.1.0.99
 Authors@R: 'Hadley Wickham <h.wickham@gmail.com> [aut,cre]'
 Description: assertthat is an extension to stopifnot() that makes it
@@ -7,6 +7,8 @@ Description: assertthat is an extension to stopifnot() that makes it
     satisfy, while also producing friendly error messages so that your
     users know what they've done wrong.
 License: GPL-3
+Depends:
+    R (>= 2.10)
 Imports:
     tools
 Suggests:
@@ -22,6 +24,7 @@ Collate:
     'base-is.r'
     'base-logical.r'
     'base-misc.r'
+    'is-prime.R'
     'utils.r'
     'validate-that.R'
 Roxygen: list(wrap = FALSE)
