@@ -41,6 +41,7 @@ test_that("is.flag works correctly", {
   expect_false(is.flag(c(TRUE, FALSE)))
   expect_false(is.flag(NULL))
   expect_equal(is.flag(NA), is.logical(NA)) # not obvious
+  expect_false(is.flag(NA, nona = TRUE))
 })
 
 test_that("is.count works correctly", {
