@@ -24,4 +24,4 @@ Collate:
     'base-misc.r'
     'utils.r'
     'validate-that.R'
-Roxygen: list(wrap = FALSE)
+RoxygenNote: 6.0.1
