@@ -61,5 +61,5 @@ has_extension <- function(path, ext) {
 on_failure(has_extension) <- function(call, env) {
   path <- eval(call$path, env)
   ext <- eval(call$ext, env)
-  paste0("File '", basename(path), "' does not have extension", ext)
+  paste0("File '", basename(path), "' does not have extension ", ext)
 }
