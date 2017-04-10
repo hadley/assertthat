@@ -1,7 +1,8 @@
 Package: assertthat
-Title: Easy pre and post assertions
-Version: 0.1.0.99
-Authors@R: 'Hadley Wickham <h.wickham@gmail.com> [aut,cre]'
+Title: Easy Pre and Post Assertions
+Version: 0.2.0
+Authors@R: 
+  person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre"))
 Description: assertthat is an extension to stopifnot() that makes it
     easy to declare the pre and post conditions that you code should
     satisfy, while also producing friendly error messages so that your

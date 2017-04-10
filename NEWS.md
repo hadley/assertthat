@@ -1,4 +1,4 @@
-# assertthat 0.1.0.99
+# assertthat 0.2.0
 
 * `assert_that()`, `see_if()`, and `validate_that()` get a `msg` argument 
   that allows you to provide a custom message (@krlmlr, #6)
