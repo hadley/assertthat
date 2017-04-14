@@ -1,3 +1,5 @@
+# assertthat 0.2.0.9000
+
 # assertthat 0.2.0
 
 * `assert_that()`, `see_if()`, and `validate_that()` get a `msg` argument 
