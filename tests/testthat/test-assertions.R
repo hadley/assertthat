@@ -49,6 +49,7 @@ test_that("has_name works correctly", {
   expect_true(has_name(x, letters[2]))
   expect_false(has_name(x, "something else"))
   expect_false(has_name(x, NA))
+  expect_error(has_name(x, c("a", "b")), "multiple values passed to has_name")
 })
 
 test_that("noNA works correctly", {
