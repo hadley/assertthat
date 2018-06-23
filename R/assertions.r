@@ -2,7 +2,10 @@
 NULL
 
 is.integerish <- function(x) {
-  is.integer(x) || (is.numeric(x) && all(x == as.integer(x)))
+  
+  # using trunc() to deal with very large numbers (including Inf)
+  res <- is.integer(x) || (is.numeric(x) && all(x == trunc(x)))
+  res
 }
 
 # is.positive.integer
