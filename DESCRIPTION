@@ -8,10 +8,11 @@ Description: assertthat is an extension to stopifnot() that makes it
     satisfy, while also producing friendly error messages so that your
     users know what they've done wrong.
 License: GPL-3
-Imports:
+Imports: 
     tools
-Suggests:
+Suggests: 
     testthat
+RoxygenNote: 6.0.1
 Collate:
     'assert-that.r'
     'on-failure.r'
@@ -25,4 +26,3 @@ Collate:
     'base-misc.r'
     'utils.r'
     'validate-that.R'
-RoxygenNote: 6.0.1
