@@ -11,7 +11,8 @@ License: GPL-3
 Imports: 
     tools
 Suggests: 
-    testthat
+    testthat,
+    covr
 RoxygenNote: 6.0.1
 Collate:
     'assert-that.r'

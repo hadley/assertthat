@@ -1,6 +1,7 @@
 # assertthat
 
 [![Travis-CI Build Status](https://travis-ci.org/hadley/assertthat.svg?branch=master)](https://travis-ci.org/hadley/assertthat)
+[![Coverage status](https://codecov.io/gh/hadley/assertthat/branch/master/graph/badge.svg)](https://codecov.io/github/hadley/assertthat?branch=master)
 
 assertthat provides a drop in replacement for `stopifnot()` that makes it easy to check the pre- and post-conditions of a function, while producing useful error messages.  
 
