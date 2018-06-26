@@ -10,6 +10,16 @@ test_that("is.integerish works correctly", {
   expect_false(is.integerish(1L + .Machine$double.eps))
   expect_false(is.integerish(1L - .Machine$double.neg.eps))
   
+  # numbers larger than base::.Machine$integer.max shouldn't trip this up
+  expect_true(is.integerish(Inf))
+  expect_true(is.integerish(-Inf))
+  
+  expect_true(is.integerish(1e10))
+  expect_true(is.integerish(-1e10))
+  
+  expect_false(is.integerish(1e10 + 0.0002))
+  expect_false(is.integerish(1e10 - 0.0002))
+
   expect_false(is.integerish(NA))
   expect_false(is.integerish(NULL))
 })

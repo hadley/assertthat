@@ -11,6 +11,8 @@ test_that("is.scalar works correctly", {
   expect_false(is.scalar(c(TRUE, FALSE)))
   expect_false(is.scalar(NULL))
   expect_true(is.scalar(NA))
+  expect_true(is.scalar(Inf))
+  expect_true(is.scalar(-Inf))
 })
 
 test_that("is.string works correctly", {
@@ -20,6 +22,8 @@ test_that("is.string works correctly", {
   expect_false(is.string(TRUE))
   expect_false(is.string(NULL))
   expect_false(is.string(NA))
+  expect_false(is.string(Inf))
+  expect_false(is.string(-Inf))
 })
 
 test_that("is.number works correctly", {
@@ -31,6 +35,8 @@ test_that("is.number works correctly", {
   expect_false(is.number(TRUE))
   expect_false(is.number(NULL))
   expect_false(is.number(NA))
+  expect_true(is.number(Inf))
+  expect_true(is.number(-Inf))
 })
 
 test_that("is.flag works correctly", {
@@ -41,6 +47,8 @@ test_that("is.flag works correctly", {
   expect_false(is.flag(c(TRUE, FALSE)))
   expect_false(is.flag(NULL))
   expect_equal(is.flag(NA), is.logical(NA)) # not obvious
+  expect_false(is.flag(Inf))
+  expect_false(is.flag(-Inf))
 })
 
 test_that("is.count works correctly", {
@@ -52,4 +60,8 @@ test_that("is.count works correctly", {
   expect_false(is.count(TRUE))
   expect_false(is.count(NULL))
   expect_false(is.count(NA))
+  expect_true(is.count(Inf))
+  expect_false(is.count(-Inf))
+  expect_false(is.count(1e10 + 0.0001))
+  expect_false(is.count(1e10 - 0.1))
 })
