@@ -111,10 +111,13 @@ get_message <- function(res, call, env = parent.frame()) {
 
 # The default failure message works in the same way as stopifnot, so you can
 # continue to use any function that returns a logical value: you just won't
-# get a friendly error message
+# get a friendly error message.
+# The code below says you get the first 60 characters plus a ...
 fail_default <- function(call, env) {
   call_string <- deparse(call, width.cutoff = 60L)
-  if (length(call_string) > 1L) ch <- paste0(call_string[1L], "...")
+  if (length(call_string) > 1L) {
+      call_string <- paste0(call_string[1L], "...")
+  }
 
   paste0(call_string, " is not TRUE")
 }
