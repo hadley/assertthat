@@ -115,7 +115,17 @@ test_that("has_args works correctly", {
   expect_false(mean %has_args% "y")
   
   expect_error(NA %has_args% "x")
-  expect_error(NULL %has_args% "x")  
+  expect_error(NULL %has_args% "x")
+  
+  # should pass with exact = FALSE if you don't have all the args or you the order is different
+  expect_true(has_args(rnorm, "n"))
+  expect_true(has_args(rnorm, c("n", "mean")))
+  expect_true(has_args(rnorm, c("mean", "sd", "n")))
+  
+  # should pass with exact = TRUE if you don't have all the args or you the order is different
+  expect_false(has_args(rnorm, "n", exact = TRUE))
+  expect_false(has_args(rnorm, c("n", "mean"), exact = TRUE))
+  expect_false(has_args(rnorm, c("mean", "sd", "n"), exact = TRUE))
 })
 
 test_that("not_empty works correctly", {
