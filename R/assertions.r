@@ -43,7 +43,10 @@ on_failure(has_attr) <- function(call, env) {
 
 #' @export
 #' @rdname has_attr
-has_name <- function(x, which) which %in% names(x)
+has_name <- function(x, which){
+    assert_that(is.scalar(which), msg = "multiple values passed to has_name")
+    which %in% names(x)
+}
 on_failure(has_name) <- function(call, env) {
   paste0(deparse(call$x), " does not have name ", eval(call$which, env))
 }
