@@ -1,4 +1,4 @@
-context("Assertion messages on base operators")
+context("base-comparison")
 
 test_that("assert_that respects custom error messages for base operators", {
   expect_error(assert_that(5 == 'i'), "not equal to")
