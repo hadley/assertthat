@@ -2,9 +2,8 @@
 NULL
 
 is.integerish <- function(x) {
-  
-  # using trunc() to deal with very large numbers (including Inf)
-  res <- is.integer(x) || (is.numeric(x) && all(x == trunc(x)))
+  # using trunc() to deal with very large numbers (including Inf) and is.na() to deal with NaN and NA_real_
+  res <- is.integer(x) || (is.numeric(x) && all(x == trunc(x)) && !is.na(x))
   res
 }
 
