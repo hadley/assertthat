@@ -12,3 +12,5 @@
 * `is.named()` returns `TRUE` if an element has `NA` name (#20)
 
 * Better error message if assertion is length 0 (@paulstaab, #22)
+
+* `is.count()` returns `FALSE` for `NA_real_`, `NaN` and `NA_integer_`. `is.integerish()` returns `FALSE` for `NA_real_` and `NaN` (@drkarthi, #54)
