@@ -21,7 +21,9 @@ test_that("is.integerish works correctly", {
   expect_false(is.integerish(1e10 - 0.0002))
 
   expect_false(is.integerish(NA))
+  expect_false(is.integerish(NA_real_))
   expect_false(is.integerish(NULL))
+  expect_false(is.integerish(NaN))
 })
 
 test_that("is.named works correctly", {
