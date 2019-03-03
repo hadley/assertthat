@@ -8,6 +8,7 @@ Description: assertthat is an extension to stopifnot() that makes it
     satisfy, while also producing friendly error messages so that your
     users know what they've done wrong.
 License: GPL-3
+Encoding: UTF-8
 Imports: 
     tools
 Suggests: 
@@ -15,6 +16,7 @@ Suggests:
     covr
 RoxygenNote: 6.1.1
 Collate:
+    'assert-packages.R'
     'assert-that.r'
     'on-failure.r'
     'assertions-file.r'
