@@ -1,4 +1,6 @@
 # assertthat 0.2.0.9000
+
+* New function `assert_packages()` checks to see if packages are installed. Can be useful assertion for functions relying on a "suggested" package. (@ijlyttle, #49)
  
 * `has_name()` now rejects attempts to check multiple names in a single function call (@jameslamb, #46)
 

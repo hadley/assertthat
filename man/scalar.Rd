@@ -59,3 +59,4 @@ Other assertions: \code{\link{are_equal}},
   \code{\link{is.error}}, \code{\link{noNA}},
   \code{\link{not_empty}}
 }
+\concept{assertions}

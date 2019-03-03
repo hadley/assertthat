@@ -31,3 +31,4 @@ Other assertions: \code{\link{are_equal}},
   \code{\link{is.scalar}}, \code{\link{noNA}},
   \code{\link{not_empty}}
 }
+\concept{assertions}

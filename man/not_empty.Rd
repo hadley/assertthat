@@ -22,3 +22,4 @@ Other assertions: \code{\link{are_equal}},
   \code{\link{is.error}}, \code{\link{is.scalar}},
   \code{\link{noNA}}
 }
+\concept{assertions}
