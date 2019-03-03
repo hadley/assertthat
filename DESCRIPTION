@@ -13,7 +13,7 @@ Imports:
 Suggests: 
     testthat,
     covr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Collate:
     'assert-that.r'
     'on-failure.r'

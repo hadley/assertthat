@@ -25,3 +25,4 @@ Other assertions: \code{\link{is.error}},
   \code{\link{is.scalar}}, \code{\link{noNA}},
   \code{\link{not_empty}}
 }
+\concept{assertions}
