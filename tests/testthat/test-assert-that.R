@@ -6,3 +6,11 @@ test_that("assert_that handles long false assertions gracefully", {
         "^isTRUE\\(.* [.]{3} is not TRUE$"
     )
 })
+
+test_that("assert_that handles has_name failures with multiple missing names", {
+    x <- list(a = TRUE, b = "hello")
+    expect_error(
+        assert_that(has_name(x, c("a", "f", "g"))),
+        regexp = "x does not have all of these name"
+    )
+})

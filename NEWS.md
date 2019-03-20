@@ -1,12 +1,12 @@
 # assertthat 0.2.0.9000
 
 * `assert_that()` no longer throws a fatal error on very long custom expressions (@jameslamb, #45)
-* 
+
 * `is.count()` returns `FALSE` for `NA_real_`, `NaN` and `NA_integer_`. `is.integerish()` returns `FALSE` for `NA_real_` and `NaN` (@drkarthi, #54)
 
 * `is.count()`, `is.flag()`, `is.number()`, and `is.scalar()` now have well-defined behavior for `Inf`, `-Inf`, and finite but large numbers (@jameslamb, #47)
 
-* `has_name()` now rejects attempts to check multiple names in a single function call (@jameslamb, #46)
+* `has_name()` now always returns a single `TRUE`/`FALSE`, even if you use it to check multiple names (@jameslamb, #60)
 
 # assertthat 0.2.0
 
