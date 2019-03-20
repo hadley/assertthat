@@ -32,6 +32,7 @@ on_failure(is.named) <- function(call, env) {
 #'
 #' y <- list(a = 1, b = 2)
 #' see_if(y %has_name% "c")
+#' see_if(y %has_name% c("a", "g", "f"))
 has_attr <- function(x, which) !is.null(attr(x, which, exact = TRUE))
 on_failure(has_attr) <- function(call, env) {
   paste0(deparse(call$x), " does not have attribute ", eval(call$which, env))
@@ -43,11 +44,11 @@ on_failure(has_attr) <- function(call, env) {
 #' @export
 #' @rdname has_attr
 has_name <- function(x, which){
-    assert_that(is.scalar(which), msg = "multiple values passed to has_name")
-    which %in% names(x)
+    all(which %in% names(x))
 }
 on_failure(has_name) <- function(call, env) {
-  paste0(deparse(call$x), " does not have name ", eval(call$which, env))
+    out_names <- paste0("'", paste0(eval(call$which, env), collapse = "', '"), "'")
+    paste0(deparse(call$x), " does not have all of these name(s): ", out_names)
 }
 #' @export
 #' @rdname has_attr
@@ -141,7 +142,7 @@ on_failure(is.date) <- function(call, env) {
 #' see_if(mean %has_args% "y")
 has_args <- function(f, args, exact = FALSE) {
   assert_that(is.function(f))
-  
+
   if (exact) {
     identical(args, names(formals(f)))
   } else {
