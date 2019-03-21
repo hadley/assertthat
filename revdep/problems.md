@@ -448,34 +448,6 @@ Version: 0.8.0.1
       Note: found 4 marked UTF-8 strings
     ```
 
-# dynutils
-
-Version: 1.0.1
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      [31m──[39m [31m1. Error: has_names works (@test-assertions.R#43) [39m [31m────────────────────────────[39m
-      multiple values passed to has_name
-      1: expect_true(list(a = 1, b = 2) %has_names% c("a", "b")) at testthat/test-assertions.R:43
-      2: quasi_label(enquo(object), label)
-      3: eval_bare(get_expr(quo), get_env(quo))
-      4: list(a = 1, b = 2) %has_names% c("a", "b")
-      5: x %has_name% which at /Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/dynutils/new/dynutils.Rcheck/00_pkg_src/dynutils/R/assertions.R:107
-      6: assert_that(is.scalar(which), msg = "multiple values passed to has_name") at /private/tmp/Rtmp4LvShU/R.INSTALLccd4176bf73a/assertthat/R/assertions.r:46
-      
-      ══ testthat results  ═════════════════════════════════════════════════════════════
-      OK: 476 SKIPPED: 1 FAILED: 1
-      1. Error: has_names works (@test-assertions.R#43) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # ecoengine
 
 Version: 1.11.0
@@ -486,38 +458,6 @@ Version: 1.11.0
     ```
     Namespace in Imports field not imported from: ‘magrittr’
       All declared Imports should be used.
-    ```
-
-# ExpDE
-
-Version: 0.1.4
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    The error most likely occurred in:
-    
-    > ### Name: ExpDE
-    > ### Title: Experimental Differential Evolution - ExpDE
-    > ### Aliases: ExpDE
-    > 
-    > ### ** Examples
-    > 
-    > # DE/rand/1/bin with population 40, F = 0.8 and CR = 0.5
-    > popsize  <- 100
-    > mutpars  <- list(name = "mutation_rand", f = 0.8)
-    > recpars  <- list(name = "recombination_bin", cr = 0.5, minchange = TRUE)
-    > selpars  <- list(name = "selection_standard")
-    > stopcrit <- list(names = "stop_maxiter", maxiter = 100)
-    > probpars <- list(name  = "sphere",
-    +                 xmin = rep(-5.12,10), xmax = rep(5.12,10))
-    > seed <- NULL
-    > showpars <- list(show.iters = "numbers", showevery = 1)
-    > ExpDE(popsize, mutpars, recpars, selpars, stopcrit, probpars, seed, showpars)
-    Error: multiple values passed to has_name
-    Execution halted
     ```
 
 # gastempt
@@ -734,42 +674,6 @@ Version: 1.0.0
       All declared Imports should be used.
     ```
 
-# MOEADr
-
-Version: 1.1.0
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘MOEADr-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: create_population
-    > ### Title: Create population
-    > ### Aliases: create_population
-    > 
-    > ### ** Examples
-    > 
-    > ex.problem <- list(name = "example_problem",
-    +                    xmin = rep(-1, 5),
-    +                    xmax = rep(1, 5),
-    +                    m    = 2)
-    > X <- create_population(20, ex.problem)
-    Error: multiple values passed to has_name
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 65-70 (Basic_Usage.Rmd) 
-    Error: processing vignette 'Basic_Usage.Rmd' failed with diagnostics:
-    multiple values passed to has_name
-    Execution halted
-    ```
-
 # MonetDBLite
 
 Version: 0.6.0
@@ -909,30 +813,6 @@ Version: 1.0.3
 # prioritizr
 
 Version: 4.0.2
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      11: assertthat::assert_that(inherits(x, "ConservationProblem"), is.character(targets), 
-             inherits(x$data$features, "data.frame"), !anyNA(targets), all(assertthat::has_name(x$data$features, 
-                 targets)), length(targets) == number_of_zones(x), all(vapply(x$data$features[, 
-                 targets, drop = FALSE], is.numeric, logical(1)))) at /Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/prioritizr/new/prioritizr.Rcheck/00_pkg_src/prioritizr/R/add_relative_targets.R:156
-      
-      ..
-      ..
-      ..
-      ══ testthat results  ═════════════════════════════════════════════════════════════
-      OK: 11532 SKIPPED: 115 FAILED: 2
-      1. Error: add_absolute_targets (character, multiple zones) (@test_add_absolute_targets.R#149) 
-      2. Error: add_relative_targets (character, multiple zones) (@test_add_relative_targets.R#155) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 ## In both
 
@@ -1165,6 +1045,82 @@ ERROR: compilation failed for package ‘rrd’
 * removing ‘/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/rrd/old/rrd.Rcheck/rrd’
 
 ```
+# RTCGA
+
+Version: 1.12.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘RTCGA-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: boxplotTCGA
+    > ### Title: Create Boxplots for TCGA Datasets
+    > ### Aliases: boxplotTCGA
+    > 
+    > ### ** Examples
+    > 
+    > library(RTCGA.rnaseq)
+    Error in library(RTCGA.rnaseq) : 
+      there is no package called ‘RTCGA.rnaseq’
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+      > library(testthat)
+      > library(RTCGA)
+      Welcome to the RTCGA (version: 1.12.1).
+      > library(RTCGA.rnaseq)
+      Error in library(RTCGA.rnaseq) : 
+        there is no package called 'RTCGA.rnaseq'
+      Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘RTCGA.rnaseq’ ‘RTCGA.clinical’ ‘RTCGA.mutations’ ‘RTCGA.RPPA’
+      ‘RTCGA.mRNA’ ‘RTCGA.miRNASeq’ ‘RTCGA.methylation’ ‘RTCGA.CNV’
+      ‘RTCGA.PANCAN12’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/ggbiplot.R:157-161)
+    ggbiplot: no visible binding for global variable ‘xvar’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/ggbiplot.R:157-161)
+    ggbiplot: no visible binding for global variable ‘yvar’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/ggbiplot.R:157-161)
+    ggbiplot: no visible binding for global variable ‘angle’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/ggbiplot.R:157-161)
+    ggbiplot: no visible binding for global variable ‘hjust’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/ggbiplot.R:157-161)
+    read.mutations: no visible binding for global variable ‘.’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/readTCGA.R:383)
+    read.mutations: no visible binding for global variable ‘.’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/readTCGA.R:386)
+    read.rnaseq: no visible binding for global variable ‘.’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/readTCGA.R:372-375)
+    survivalTCGA: no visible binding for global variable ‘times’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/survivalTCGA.R:101-137)
+    whichDateToUse: no visible binding for global variable ‘.’
+      (/Users/hadley/Documents/devtools/assertthat/revdep/checks.noindex/RTCGA/new/RTCGA.Rcheck/00_pkg_src/RTCGA/R/downloadTCGA.R:167-168)
+    Undefined global functions or variables:
+      . angle hjust muted times varname xvar yvar
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘RTCGA.rnaseq’, ‘RTCGA.clinical’, ‘RTCGA.mutations’, ‘RTCGA.CNV’, ‘RTCGA.RPPA’, ‘RTCGA.mRNA’, ‘RTCGA.miRNASeq’, ‘RTCGA.methylation’
+    ```
+
 # rvinecopulib
 
 Version: 0.3.0.1.1
@@ -1240,15 +1196,6 @@ Version: 0.1.4
     ```
     Package unavailable to check Rd xrefs: ‘tm’
     ```
-
-# themetagenomics
-
-Version: 0.1.0
-
-## In both
-
-*   R CMD check timed out
-    
 
 # tidytransit
 
