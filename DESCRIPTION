@@ -1,6 +1,6 @@
 Package: assertthat
 Title: Easy Pre and Post Assertions
-Version: 0.2.1
+Version: 0.2.1.9000
 Authors@R:
   person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre"))
 Description: An extension to stopifnot() that makes it easy to declare 

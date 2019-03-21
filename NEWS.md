@@ -1,3 +1,5 @@
+# assertthat (development version)
+
 # assertthat 0.2.1
 
 * `assert_that()` no longer throws a fatal error on very long custom 
