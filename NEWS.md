@@ -1,4 +1,4 @@
-# assertthat 0.2.0.9000
+# assertthat 0.2.1
 
 * `assert_that()` no longer throws a fatal error on very long custom 
   expressions (@jameslamb, #45)
