@@ -8,6 +8,8 @@ Description: An extension to stopifnot() that makes it easy to declare
     producing friendly error messages so that your users know what's gone
     wrong.
 License: GPL-3
+URL: https://github.com/hadley/assertthat
+BugReports: https://github.com/hadley/assertthat/issues
 Imports: 
     tools
 Suggests: 
