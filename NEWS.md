@@ -1,5 +1,8 @@
 # assertthat (development version)
 
+* nested functions with custom assertion messages give an error at the correct
+  position (@banfai, #70)
+
 # assertthat 0.2.1
 
 * `assert_that()` no longer throws a fatal error on very long custom 
