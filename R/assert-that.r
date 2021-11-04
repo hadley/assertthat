@@ -73,7 +73,7 @@ see_if <- function(..., env = parent.frame(), msg = NULL) {
 
     # Failed, so figure out message to produce
     if (!res) {
-      if (is.null(msg))
+      if (is.null(msg) || has_attr(res, "msg")) 
         msg <- get_message(res, assertion, env)
       return(structure(FALSE, msg = msg))
     }
