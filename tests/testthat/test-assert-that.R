@@ -14,3 +14,10 @@ test_that("assert_that handles has_name failures with multiple missing names", {
         regexp = "x does not have all of these name"
     )
 })
+
+test_that("assert_that correctly handles nested assertions", 
+    expect_error(
+        assert_that(assert_that(FALSE, msg = "inner"), msg = "outer"),
+        regexp = "inner"
+    )
+)
