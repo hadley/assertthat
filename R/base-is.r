@@ -42,8 +42,12 @@ base_fs$is.recursive <- is_not("a recursive object")
 base_fs$is.symbol <- is_not("a name")
 
 
-# Catch all
 base_fs$inherits <- function(call, env) {
   class <- eval(call$what, env)
-  paste0(deparse(call$x), " does not inherit from class ", class)
+  x_str <- paste(deparse(call$x), collapse = " ")
+  if (length(class) == 1L) {
+    paste(x_str, "does not inherit from class", class)
+  } else {
+    paste(x_str, "does not inherit from any of these classes:", toString(class))
+  }
 }
