@@ -1,5 +1,9 @@
 # assertthat (development version)
 
+* `assert_that(inherits(x, c("a", "b")))`, where inheritance is tested
+  against multiple target classes, correctly handles failed
+  assertions (@MichaelChirico, [#73](https://github.com/hadley/assertthat/issues/73))
+
 # assertthat 0.2.1
 
 * `assert_that()` no longer throws a fatal error on very long custom 

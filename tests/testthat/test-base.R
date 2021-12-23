@@ -17,3 +17,11 @@ test_that("all message is useful", {
 test_that("custom message is printed", {
   expect_equal(validate_that(FALSE, msg = "Custom message"), "Custom message")
 })
+
+test_that("inherits on multiple classes fails gracefully", {
+  expect_error(
+    assert_that(inherits(NULL, c("a", "b"))),
+    "does not inherit from any of these classes",
+    fixed = TRUE
+  )
+})
