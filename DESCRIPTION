@@ -4,7 +4,7 @@ Version: 0.2.1.9000
 Authors@R:
   person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre"))
 Description: An extension to stopifnot() that makes it easy to declare 
-    the pre and post conditions that you code should satisfy, while also 
+    the pre and post conditions that your code should satisfy, while also 
     producing friendly error messages so that your users know what's gone
     wrong.
 License: GPL-3
