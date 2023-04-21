@@ -18,7 +18,7 @@ base_fs$"||" <- function(call, env) {
   rhs <- eval(call[[3]], env)
   r_msg <- get_message(rhs, call[[3]], env)
 
-  paste0(l_msg, " or ", r_msg)
+  paste0(l_msg, " and ", r_msg)
 }
 
 base_fs$any <- function(call, env) {
